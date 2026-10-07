@@ -15,6 +15,9 @@ a = Analysis(
     datas=keyring_datas
     + copy_metadata("keyring")
     + copy_metadata("pywin32-ctypes")
+    + [(str(project_root / "assets" / "INTERFACEWALLPAPER.png"), "assets")]
+    + [(str(project_root / "assets" / "CapturixTop.png"), "assets")]
+    + [(str(project_root / "assets" / "CapturixCapture.png"), "assets")]
     + [(str(project_root / "assets" / "BotCapturar.ico"), "assets")],
     hiddenimports=keyring_hiddenimports + [
         "keyring.backends.Windows",

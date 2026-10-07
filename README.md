@@ -1,8 +1,8 @@
-![Logo BotCapturar](logo%20com%20nome.png)
+![Logo BotCapturar — Capturix](novalogonome.png)
 
 # BotCapturar
 
-Aplicativo local para enviar o comando `$capturar` no chat de uma live da Kick. Ao clicar em **Iniciar**, a primeira mensagem é enviada imediatamente; depois o BotCapturar envia outra a cada **5 minutos e 5 segundos**. **Parar** cancela os próximos envios.
+Aplicativo desktop com identidade pixel-art do Capturix para enviar o comando `$capturar` no chat de uma live da Kick. Ao clicar em **Iniciar**, a primeira mensagem é enviada imediatamente; depois o BotCapturar envia outra a cada **5 minutos e 5 segundos**. **Parar** cancela os próximos envios.
 
 O aplicativo usa a API oficial da Kick. O navegador abre somente durante a autorização OAuth; não precisa ficar aberto enquanto as mensagens são enviadas.
 
@@ -64,6 +64,8 @@ Cada usuário deve criar e usar a própria Kick App. O Client Secret e os tokens
 - **Credenciais:** Client Secret e tokens ficam no Gerenciador de Credenciais do Windows; não os copie para arquivos compartilhados.
 
 ## Executável e instalador para Windows
+
+Versão atual: **v0.2.0**.
 
 - `dist/BotCapturar.exe`: versão portátil, sem janela de terminal. O destinatário não precisa instalar Python.
 - `dist/installer/BotCapturar-Setup.exe`: instalador por usuário, com atalho no menu Iniciar, atalho opcional na área de trabalho e desinstalador. Não precisa de privilégios de administrador.

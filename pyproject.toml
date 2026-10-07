@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "botcapturar"
-version = "0.1.0"
+version = "0.2.0"
 description = "Local Kick chat automation for the $capturar command"
 requires-python = ">=3.12"
 dependencies = [

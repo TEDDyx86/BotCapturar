@@ -24,6 +24,9 @@ def test_pyinstaller_spec_builds_windowed_executable_with_windows_keyring_backen
     assert "project_root = Path(SPECPATH).resolve().parent\n" in spec
     assert "BotCapturar.ico" in spec
     assert 'project_root / "assets" / "BotCapturar.ico"' in spec
+    assert 'project_root / "assets" / "INTERFACEWALLPAPER.png"' in spec
+    assert 'project_root / "assets" / "CapturixTop.png"' in spec
+    assert 'project_root / "assets" / "CapturixCapture.png"' in spec
 
 
 def test_inno_setup_is_per_user_and_does_not_remove_credentials():
@@ -58,7 +61,7 @@ def test_readme_has_wordmark_at_top_and_explains_setup_and_button_order():
     ]
 
     assert readme.lstrip().startswith("![")
-    assert "logo%20com%20nome.png" in readme
+    assert "novalogonome.png" in readme
     assert "kick.com/jukes" in guide and "digite: jukes" in guide
     assert "client id" in normalized and "client secret" in normalized
     assert "identifica sua kick app" in normalized
@@ -73,6 +76,16 @@ def test_app_icon_is_a_multi_resolution_windows_icon():
 
     assert icon[:4] == b"\x00\x00\x01\x00"
     assert int.from_bytes(icon[4:6], "little") >= 5
+
+
+def test_release_version_matches_package_app_and_installer_metadata():
+    project = tomllib.loads((ROOT / "pyproject.toml").read_text(encoding="utf-8"))["project"]
+    app_init = (ROOT / "src" / "botcapturar" / "__init__.py").read_text(encoding="utf-8")
+    installer = (ROOT / "packaging" / "BotCapturar.iss").read_text(encoding="utf-8")
+
+    assert project["version"] == "0.2.0"
+    assert '__version__ = "0.2.0"' in app_init
+    assert '#define AppVersion "0.2.0"' in installer
 
 
 def test_release_build_runs_tests_and_requires_both_artifacts():
